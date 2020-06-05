@@ -7,7 +7,7 @@ namespace RestApiExample.Models
 {
     public class SqlNewsRepositories :INewsRepositories
     {
-        public static List<News> ListNews = new List<News>
+        public  List<News> ListNews = new List<News>
         {
              new News { Id = 0, Title = "Humanity finally colonized the Mercury!!", Text = "", AuthorName = "Jeremy Clarkson", IsFake = true},
             new News { Id = 1, Title = "Increase your lifespan by 10 years, every morning you need...", Text = "", AuthorName = "Svetlana Sokolova", IsFake = true},
@@ -24,6 +24,22 @@ namespace RestApiExample.Models
         public void CreateNews(News news)
         {
             ListNews.Add(news);
+        }
+        
+        public void DeleteNews()
+        {
+            
+        }
+        
+        public void ChangeNews()
+        {
+
+        }
+
+        
+        public void ChangeParameterNews()
+        {
+
         }
     }
 }
