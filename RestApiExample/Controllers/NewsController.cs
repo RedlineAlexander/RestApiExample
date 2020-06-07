@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using RestApiExample.Models;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,26 @@ using System.Threading.Tasks;
  * который будет изменять переданные свойства в уже существующей новости.
  * Вам необходимо будет передавать id новости и целый обьект новости и обновлять те свойства
  * , которые были переданы. (т.е. в передаваемом JSON обьекте вы можете указывать не все свойства). Создайте соответствующий метод в репозитории.
+ * 
+ * 
+ * if(){
+
+}
+else
+{
+
+}
+
+switch(){
+
+case:
+break;
+
+default: 
+break;
+
+}
+a > b ? 3:4;
  */
 namespace RestApiExample.Controllers
 {
@@ -43,23 +64,34 @@ namespace RestApiExample.Controllers
         [HttpPost("News")]
         public void CreateNews(News news)
         {
-            _repository.CreateNews(news);
+            _repository.CreateNews(news);//AddNews
         }
-        [HttpDelete]
+        [HttpDelete("News/{id}")]
         public void DeleteNews()
         {
 
+            if(id == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                _repository.DeleteNews();
+            }
+            
         }
         [HttpPut]
         public void ChangeNews()
         {
-
+            _repository.ChangeNews();
         }
         
-        [HttpPatch]
-        public void ChangeParameterNews()
+        [HttpPatch("]
+        public void ChangeParameterNews(int id, JsonPatchDocument<Value>Patch)
         {
+            var value = new Value { ID = id, Text = "Do"}
 
+            _repository.ChangeParameterNews();
         }
 
     }
